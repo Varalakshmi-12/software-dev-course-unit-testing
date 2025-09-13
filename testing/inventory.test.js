@@ -39,6 +39,9 @@ describe('calculateDiscount',()=>{
     test('should not be applied discount',()=>{
         expect(inventory.calculateDiscount(100,-0.2)).toBe(`Discount must be a decimal value between 0 and 1.`);
     });
+    test('Invalid inputs given ,throws error.',()=>{
+        expect(inventory.calculateDiscount('100','0.2')).toBe(`Price and Discount must be a number.`);
+    });
 
 });
 
@@ -66,6 +69,10 @@ describe("sortInventory function", function(){
 
     test("Should check that sortInventory sorts by amount", function(){
     expect(inventory.sortInventory(sortTest,"amount")).toEqual(AmtSort);
+    });
+
+    test("no sorting  because key 'quantity' is not defined ", function(){
+    expect(inventory.sortInventory(sortTest,"quantity")).toEqual(sortTest);
     });
 
 });
