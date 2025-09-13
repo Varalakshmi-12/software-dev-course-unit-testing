@@ -75,6 +75,14 @@ describe("sortInventory function", function(){
     expect(inventory.sortInventory(sortTest,"quantity")).toEqual(sortTest);
     });
 
+    test("returns empty array for invalid inputs ", function(){
+    expect(inventory.sortInventory(null,"amount")).toEqual([]);
+    });
+
+    test("returns empty array for invalid inputs ", function(){
+    expect(inventory.sortInventory(sortTest,null)).toEqual([]);
+    });
+
 });
 
 
